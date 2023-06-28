@@ -7,11 +7,12 @@ function App() {
 
     return (
         <>
-            {isLoading ? (
-                <p>Procesando solicitud</p>
+            {localStorage.getItem("token") ? (
+                <p>Estas logueado</p>
             ) : (
-                <FormLogin setIsLoading={setIsLoading} />
+                <p>Logueate!</p>
             )}
+            <FormLogin setIsLoading={setIsLoading} />
         </>
     );
 }
