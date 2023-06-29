@@ -3,13 +3,13 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
-const TodoItem = ({ label, handleCheck, checked }) => {
+const TodoItem = ({ id, label, handleCheck, checked }) => {
     return (
         <>
             <FormGroup>
                 <FormControlLabel
                     control={
-                        <Checkbox onChange={handleCheck} checked={checked} />
+                        <Checkbox id={id} onChange={(e)=>handleCheck(e)} checked={checked} />
                     }
                     label={label}
                 />
@@ -21,6 +21,7 @@ const TodoItem = ({ label, handleCheck, checked }) => {
 export default TodoItem;
 
 TodoItem.propTypes = {
+    id: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     handleCheck: PropTypes.func.isRequired,
     checked: PropTypes.bool,
